@@ -17,6 +17,7 @@
 - php artisan rollback
 - php artisan db:seed
 - php artisan migrate:fresh --seed
+- php artisan make:seeder (seeder_name)
 
 ## About Laravel
 

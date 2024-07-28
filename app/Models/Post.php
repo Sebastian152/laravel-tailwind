@@ -34,7 +34,7 @@ class Post extends Model
     protected function casts(): array {
         return [
             'published_at' => 'datetime',
-            'active' => 'boolean'
+            'isActive' => 'boolean'
         ];
     }
 
