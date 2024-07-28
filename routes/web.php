@@ -29,9 +29,11 @@ Route::get('/posts/{post}/edit', [PostController::class, 'edit']);
 //PUT : Post Route
 Route::put('/posts/{post}/', [PostController::class, 'update']);
 
-// POST : Posts Routed
+// POST : Post Route
 Route::post('/posts', [PostController::class, 'store']);
 
+//DELETE : Post Route
+Route::delete('/posts/{post}', [PostController::class, 'destroy']);
 
 // test route
 Route::get('test', function() {
