@@ -9,4 +9,6 @@
                 </a>
             </li>
         @endforeach
+    
+        {{$posts->links()}}
 </x-app-layout>

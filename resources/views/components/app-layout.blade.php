@@ -11,7 +11,7 @@
 <body>
 
     <header></header>
-        <main class="ml-4">
+        <main class="ml-4 mr-4 mt-4">
             {{$slot}}
         </main>
     <footer></footer>
