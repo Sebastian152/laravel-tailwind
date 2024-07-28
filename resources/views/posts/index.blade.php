@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Laravel Tailwind</title>
-</head>
-<body>
+<x-app-layout title="Blog posts">
+
     <h1>Aquí se mostrarán todos los posts</h1>
-</body>
-</html>
+        @foreach ($posts as $post)
+            <li class="ml-4">
+                <a href="/posts/{{$post->id}}">
+                    {{ $post->title }}
+                </a>
+            </li>
+        @endforeach
+</x-app-layout>
