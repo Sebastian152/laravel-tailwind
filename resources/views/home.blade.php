@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Laravel Tailwind</title>
-
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
-    <h1>Welcome to My Laravel-Tailwind app</h1>
-</body>
-</html>
+<x-app-layout>
+    <div class="max-w-4xl mx-auto px-auto">
+        <h1>Welcome to My Laravel-Tailwind app</h1>
+        <x-alert class="mb-8">
+            <x-slot name="title">Titulo a!</x-slot>
+            Contenido de la alerta
+        </x-alert>
+        <p>Hola mundo</p>
+    </div>
+</x-app-layout>
