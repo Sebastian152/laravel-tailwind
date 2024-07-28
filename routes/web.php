@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,21 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    
-});
+// Index Route, not passing any method 
+// as its going to use the __invoke
+Route::get('/', HomeController::class);
 
-Route::get('/posts', function() {
-    return "Aqui se mostrarán los posts";
-});
+// Posts Routes
+Route::get('/posts', [PostController::class, 'index']);
+Route::get('/posts/create', [PostController::class, 'create']);
+Route::get('/posts/{post}/', [PostController::class, 'show']);
 
-Route::get('/posts/create', function() {
-    return "Aqui se mostrará un formulario para crear un post";
-});
-
-Route::get('/posts/{post}/{category}', function($post, $category) {
-    if($category) {
-        return "Aquí se mostrarán el post {$post}, con la categoría: {$category}";
-    }
-    return "Aquí se mostrará el post {$post}";
-});
