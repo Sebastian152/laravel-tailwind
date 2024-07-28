@@ -1,4 +1,5 @@
 <x-app-layout title="Blog posts">
+    <a href="/posts/create">New post</a>
 
     <h1>Aquí se mostrarán todos los posts</h1>
         @foreach ($posts as $post)

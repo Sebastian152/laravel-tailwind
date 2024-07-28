@@ -20,10 +20,18 @@ use App\Models\Post;
 // as its going to use the __invoke
 Route::get('/', HomeController::class);
 
-// Posts Routes
+// GET : Posts Routes
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('/posts/create', [PostController::class, 'create']);
 Route::get('/posts/{post}/', [PostController::class, 'show']);
+Route::get('/posts/{post}/edit', [PostController::class, 'edit']);
+
+//PUT : Post Route
+Route::put('/posts/{post}/', [PostController::class, 'update']);
+
+// POST : Posts Routed
+Route::post('/posts', [PostController::class, 'store']);
+
 
 // test route
 Route::get('test', function() {

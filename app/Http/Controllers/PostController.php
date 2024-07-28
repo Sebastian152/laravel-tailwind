@@ -9,7 +9,7 @@ class PostController extends Controller
 {
     public function index() {
         // Retrieving all posts
-        $posts = Post::all();
+        $posts = Post::orderBy('id', 'desc')->get();
         return view('posts.index', compact('posts'));
     }
 
@@ -21,8 +21,29 @@ class PostController extends Controller
         // Ways to use parameters:
         // , compact('post')
         // , ['post' => $post]
+        $post = Post::find($post);
         return view('posts.show', compact('post'));
     }
 
+    // We create a Request
+    public function store(Request $request) {
+        $post = new Post();
+
+        $post->title = $request->title;
+        $post->category = $request->category;
+        $post->content = $request->content;
+
+        $post->save();
+
+        return redirect('/posts');
+    }
     
+    public function edit($post) {
+        $post = Post::find($post);
+        return view('posts.edit', compact('post'));
+    }
+
+    public function update(Request $request, $post) {
+        $post = Post::find($post);
+    }
 }
