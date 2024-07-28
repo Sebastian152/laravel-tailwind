@@ -18,6 +18,7 @@
 - php artisan db:seed
 - php artisan migrate:fresh --seed
 - php artisan make:seeder (seeder_name)
+- php artisan make:factory (factory_name)
 
 ## About Laravel
 
