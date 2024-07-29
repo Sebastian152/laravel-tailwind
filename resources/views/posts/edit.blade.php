@@ -1,6 +1,6 @@
 <x-app-layout>
     <h1>Form to edit a post</h1>
-    <form action="/posts/{{$post->id}}" method="POST" class="bg-gray-500 p-4">
+    <form action="{{route('posts.update', $post)}}" method="POST" class="bg-gray-500 p-4">
         @csrf
         @method('PUT')
         

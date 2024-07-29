@@ -21,19 +21,26 @@ use App\Models\Post;
 Route::get('/', HomeController::class);
 
 // GET : Posts Routes
-Route::get('/posts', [PostController::class, 'index']);
-Route::get('/posts/create', [PostController::class, 'create']);
-Route::get('/posts/{post}/', [PostController::class, 'show']);
-Route::get('/posts/{post}/edit', [PostController::class, 'edit']);
+Route::get('/posts', [PostController::class, 'index'])
+->name('posts.index');
+Route::get('/posts/create', [PostController::class, 'create'])
+->name('posts.create');
+Route::get('/posts/{post}/', [PostController::class, 'show'])
+->name('posts.show');
+Route::get('/posts/{post}/edit', [PostController::class, 'edit'])
+->name('posts.edit');
 
 //PUT : Post Route
-Route::put('/posts/{post}/', [PostController::class, 'update']);
+Route::put('/posts/{post}/', [PostController::class, 'update'])
+->name('posts.update');
 
 // POST : Post Route
-Route::post('/posts', [PostController::class, 'store']);
+Route::post('/posts', [PostController::class, 'store'])
+->name('posts.store');
 
 //DELETE : Post Route
-Route::delete('/posts/{post}', [PostController::class, 'destroy']);
+Route::delete('/posts/{post}', [PostController::class, 'destroy'])
+->name('posts.destroy');
 
 // test route
 Route::get('test', function() {
