@@ -6,7 +6,7 @@
     <h1>Here is the post list:</h1>
     @foreach ($posts as $post)
         <li class="ml-4">
-            <a href="{{route('posts.show', $post->id)}}">
+            <a href="{{route('posts.show', $post)}}">
                 {{ $post->title }}
             </a>
         </li>

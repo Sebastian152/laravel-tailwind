@@ -8,6 +8,10 @@
             <input class="border-2 mb-2 border-gray-800" type="text" name="title">
         </label>
         <label for="" class="block">
+            Slug:
+            <input class="border-2 mb-2 border-gray-800" type="text" name="slug">
+        </label>
+        <label for="" class="block">
             Category:
             <input class="border-2 mb-2 border-gray-800" type="text" name="category">
         </label>
