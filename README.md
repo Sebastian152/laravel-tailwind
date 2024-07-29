@@ -19,6 +19,7 @@
 - php artisan migrate:fresh --seed
 - php artisan make:seeder (seeder_name)
 - php artisan make:factory (factory_name)
+- php artisan r:l RETURNS OUR CREATED ROUTES
 
 ## About Laravel
 

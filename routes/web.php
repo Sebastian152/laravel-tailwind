@@ -16,86 +16,22 @@ use App\Models\Post;
 |
 */
 
-// Index Route, not passing any method 
-// as its going to use the __invoke
-Route::get('/', HomeController::class);
+// We can except a route with  
+// by adding ->except(routeName), 
+// or ->except([routeName1, routeName2, ...]) at the end;
+// use the CLI "php artisan r:l" to see the routes created
+// by the resource
+// if we only need specific routes use
+// ->only(routeName) or
+// ->only([routeName1, routeName2, ...])
+Route::resource('posts', PostController::class);
 
-// GET : Posts Routes
-Route::get('/posts', [PostController::class, 'index'])
-->name('posts.index');
-Route::get('/posts/create', [PostController::class, 'create'])
-->name('posts.create');
-Route::get('/posts/{post}/', [PostController::class, 'show'])
-->name('posts.show');
-Route::get('/posts/{post}/edit', [PostController::class, 'edit'])
-->name('posts.edit');
+// If you want only the api routes use Route::apiResource
 
-//PUT : Post Route
-Route::put('/posts/{post}/', [PostController::class, 'update'])
-->name('posts.update');
+// we can change the URI
+// using Route::resource('articles', PostController::class)
+// ->names('posts');
 
-// POST : Post Route
-Route::post('/posts', [PostController::class, 'store'])
-->name('posts.store');
-
-//DELETE : Post Route
-Route::delete('/posts/{post}', [PostController::class, 'destroy'])
-->name('posts.destroy');
-
-// test route
-Route::get('test', function() {
-    /* 
-    ! Creating new post
-    $post = new Post;
-
-    $post->title = 'Titulo de prueba 1';
-    $post->content = 'Contenido de prueba 1';
-    $post->category = 'Categoria de prueba 1';
-
-    $post->save();
-
-    return $post;
-    */
-    // ! Searching by id
-    // $post = Post::find(1);
-
-    // ! Searching by title / Update register
-    /*
-   $post = Post::where('title', 'Titulo de prueba 1')
-    ->first();
-
-    $post->title = 'My new title';
-    $post->save();
-
-    return $post;
-    */
-
-    /* 
-    ? Return all posts
-    $posts = Post::all();
-
-    ? Return all posts with condition
-    $posts = Post::where('category', 'Web Development');
-
-    ? Order posts by parameter
-    $posts = Post::orderBy('id', 'desc')->get();
-    $posts = Post::orderBy('id', 'asc')->get();
-
-    ? Selecting only the category from each register
-    ? and showing only 2 registers
-    $posts = Post::orderBy('id', 'asc')
-            ->select('category')
-            ->take(2)
-            ->get();
-
-    return $posts;
-    */
-
-    /*
-    ! Deleting register
-    $post = Post::find(1);
-    $post->delete();
-    return "Register was deleted succesfully";
-    */
-
-}); 
+// we can change the parameters name too
+// using Route::resource('articles', PostController::class)
+// ->parameters(['articles' => 'post'])
