@@ -10,6 +10,17 @@ class Post extends Model
 {
     use HasFactory;
 
+    // protected $fillable = [
+    //     'title',
+    //     'slug',
+    //     'category',
+    //     'content'
+    // ];
+
+    protected $guarded = [
+        'isActive'
+    ];
+
     // ELOQUENT will take the table posts
     // as it will use the model name Post
     // with undercase and plural form
